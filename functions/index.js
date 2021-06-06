@@ -9,32 +9,39 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'favoritesfabfa@gmail.com',
-    pass:'a123b456!'
+    user: functions.config().auth.email,
+    pass: functions.config().auth.pass
   }
 });
 
 
-exports.sendContactMessage = functions.auth.user().onCreate(user => {
+exports.sendMail = functions.auth.user().onCreate(user => {
   const {email} = user;
-  let message = `<h3 style="color: #9C27B0">Hello Dir ${user.displayName}!!</h3> <br>
+  let message = `<h3 style="color: #9C27B0">Hello Dear ${user.displayName}!!</h3> <br>
                 Please SUbscribe My Channel!
                 `
+
   const mailOptions = {
-    from: `favoritesfabfa@gmail.com`,
+    from: functions.config().auth.email,
     to: email,
     subject: 'Thank you for watching',
     html: message
   };
 
-  return transporter.sendMail(mailOptions, (error, data) => {
+  return transporter.sendMail(mailOptions, (error, data)=> {
+    console.log('CONFIG!!!!!!!!!!!!!!!!!!!!!!!!!', functions.config().auth)
     if (error) {
       console.log(error)
+
       return
     }
     console.log("EMAIL Sent!")
-  });
+  })
 })
+
+
+
+
 
 
 
