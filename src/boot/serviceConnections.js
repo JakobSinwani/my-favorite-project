@@ -1,5 +1,6 @@
 import fbi from '../middleware/firebaseAPI/index';
 
+
 const config = {
   apiKey: "AIzaSyCKvDpT7YzzSESmSIEDd7r8_g9DY4j5Z_Q",
   authDomain: "my-favorite-app-e4a1d.firebaseapp.com",

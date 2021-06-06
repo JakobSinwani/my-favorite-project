@@ -9,6 +9,8 @@ const routes = [
   },
   {path: '/lp',
   component:()=> import('../pages/Lp.vue'),
+  },  {path: '/bus',
+  component:()=> import('../pages/Bus.vue'),
   },
 
   // Always leave this as last one,
