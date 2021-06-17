@@ -15,6 +15,11 @@ const routes = [
   {path: '/axios',
   component:()=> import('../pages/axios.vue'),
   },
+  {path: '/nest',
+  component:()=> import('../pages/nest.vue'),
+  },  {path: '/home',
+  component:()=> import('../pages/HomePageTest.vue'),
+  },
 
   // Always leave this as last one,
   // but you can also remove it
