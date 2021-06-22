@@ -1,15 +1,29 @@
 <template>
 <div class="container">
   <div class="card">
-    <h4 class="title">title</h4>
-    <input>
+    <h4  v-bind:class="{title}">title</h4>
+    <input type="number" v-model="number">
   </div>
+  <button @click="title= !title">change class</button>
+  <h3>{{number}}</h3>
 </div>
 </template>
 
 <script>
 export default {
-  name: "Focus"
+  name: "Focus",
+  data(){
+    return {
+      number: 0,
+      title: false
+    }
+  },
+  watch: {
+    number(newVal, oldVal) {
+      console.log( "new: ",newVal)
+      console.log('old', oldVal)
+    }
+  },
 }
 </script>
 
@@ -20,6 +34,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 
 .card {
 

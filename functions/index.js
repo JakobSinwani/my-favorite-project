@@ -15,6 +15,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
+
 exports.sendMail = functions.auth.user().onCreate(user => {
   const {email} = user;
   let message = `<h3 style="color: #9C27B0">Hello Dear ${user.displayName}!!</h3> <br>
@@ -45,3 +46,20 @@ exports.sendMail = functions.auth.user().onCreate(user => {
 
 
 
+
+const user = {
+  id: 3,
+  name: 'moshe'
+};
+const obj = {
+  users: {
+    1: {
+      id: 1,
+      name: 'nofar'
+    }
+  }
+}
+
+obj.users[user.id] = user
+
+console.log(obj)
