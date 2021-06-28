@@ -1,6 +1,6 @@
 import fbi from '../middleware/firebaseAPI/index';
 
-
+console.log('i am boot')
 const config = {
   apiKey: "AIzaSyCKvDpT7YzzSESmSIEDd7r8_g9DY4j5Z_Q",
   authDomain: "my-favorite-app-e4a1d.firebaseapp.com",
@@ -14,6 +14,7 @@ const config = {
 
   fbi.firebaseInit(config);
 
+
   fbi.firebase.auth().onAuthStateChanged( async user => {
     window.user = user;
     if(user)
@@ -21,4 +22,4 @@ const config = {
     else console.log('no user');
   })
 
-
+console.log('boot 2')

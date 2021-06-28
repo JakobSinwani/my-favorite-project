@@ -1,27 +1,28 @@
 <template>
-<div>
-  <FatherOne/>
-  <h3>{{number}}</h3>
-  <FutherTwo :number="number"/>
+<div style="background: #F2C037; padding: 30px">
+  <FatherOne @fatherOne="setNumberOnGrandFather"/>
+  <h3>I Am GrandFather</h3>
+  <h6>{{number}}</h6>
+  <FatherTwo :number="number" />
 </div>
 </template>
 
 <script>
 import FatherOne from "pages/PropsHell/familyOne/FatherOne";
-import FutherTwo from "pages/PropsHell/familyTwo/FutherTwo";
+import FatherTwo from "pages/PropsHell/familyTwo/FatherTwo";
 export default {
   name: "PropsHell",
-  components: {FutherTwo, FatherOne},
+  components: {FatherTwo, FatherOne},
   data(){
     return {
-      number: 0
+      number: 0,
     }
   },
   methods: {
-  setNumber(numberFromEmit) {
-    this.number = numberFromEmit
-  }
-  }
+    setNumberOnGrandFather(numberFromFatherOne){
+      this.number = numberFromFatherOne;
+    }
+  },
 }
 </script>
 

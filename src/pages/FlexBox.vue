@@ -1,63 +1,56 @@
 <template>
   <div class="container">
-    <div class="flex-container">
-      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>      <div class="flex-item">1</div>
-      <div class="flex-item">2</div>
-      <div class="flex-item">3</div>
-      <div class="flex-item">4</div>
+    <h3 style="transform: translateY(-40px)">Flex Directions: {{directionOne}}</h3>
+    <div class="main">
+      <div class="cross">
+        <div class="arrow-cross">
+          <q-icon name="arrow_back_ios"/>
+          <div class="tail"></div>
+        </div>
+        <span style="" class="cross-content">{{ col }}</span>
+      </div>
+      <div class="arrow-main">
+        <q-icon name="arrow_back_ios"/>
+        <div class="tail "></div>
+      </div>
+      <span>{{row}}</span>
     </div>
-    <div>
-      <h4>i am new</h4>
-    </div>
+
+    <q-btn @click="switchAxis" label="switch" style="transform: translateX(-160px)"/>
   </div>
 </template>
 
 <style scoped>
-
-.flex-container {
-  background: black;
+.container {
   height: 100vh;
-
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  align-content: center;
-
-  display: flex;
 }
-.flex-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  height: 100px;
-  width: 100px;
-  margin: 20px;
-  background: darkblue;
-  font-size: 20px;
-  color: white;
+.tail {
+  transform: translate(2px,-10px);
+  height: 2px;
+  background: #1D1D1D;
+}
+
+.arrow-cross {
+ transform: translateX(-80px) rotateZ(90deg);
+}
+
+.arrow-main {
+  transform: translateY(60px) rotateZ(180deg);
+}
+
+.main span {
+  display: inline-block;
+  transform: translateY(60px);
+}
+
+.cross span {
+  display: inline-block;
+  transform: translateX(-90px) rotateZ(90deg);
 }
 
 </style>
@@ -68,38 +61,28 @@ export default {
   name: "Lp",
   data(){
     return {
-      bindClass: true,
-      text: 'helloo'
+      row: 'Main-Axis - justify-content',
+      col: 'Cross-Axis - align-items',
+      directionOne: 'row',
+      directionTwo: 'column',
+
     }
   },
-  beforeCreate() {
-    console.log('beforeCreate',  this.text)
-  },
-  created() {
-    console.log('created',this.text)
-  },
-  beforeMount() {
-    console.log('beforeMount')
-  },
-  mounted() {
-    console.log('mounted')
-  },
-  beforeUpdate() {
-    console.log('beforeUpdate')
-  },
+  methods: {
+    switchAxis(){
+      const row = this.row;
+      const col = this.col;
+      const directionOne = this.directionOne;
+      const directionWto = this.directionTwo;
 
-  updated() {
-    console.log('updated')
-    // addEventListener('click', ()=> {
-    //   console.log('I am Click')
-    // })
-  },
-  beforeDestroy() {
-    console.log('beforeDestroy')
-  },
-  destroyed() {
-    console.log('destroyed')
-  },
+      this.row = col;
+      this.col = row
+      this.directionOne = directionWto;
+      this.directionTwo = directionOne
+    }
+  }
+
+
 }
 
 

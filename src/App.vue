@@ -6,5 +6,8 @@
 <script>
 export default {
   name: 'App',
+  beforeCreate() {
+    console.log('HELLO APP')
+  }
 }
 </script>

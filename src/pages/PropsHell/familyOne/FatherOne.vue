@@ -1,26 +1,27 @@
 <template>
-<div>
-  <h3>I AM ONE</h3>
-  <input v-model="number"  @input="send(number)">
-  <p>{{number}}</p>
-<!--  <q-btn label="send Number" />-->
+<div style="background: #aaa; padding: 20px">
+  <ChildOne @childOne="sendNumberToGrandFather" />
+<!--  <h3>I AM Father ONE</h3>-->
+<!--    <h6>{{number}}</h6>-->
 </div>
 </template>
 
 <script>
-import {bus} from '../../../middleware/busEvent/index'
+import ChildOne from "pages/PropsHell/familyOne/ChildOne";
 export default {
   name: "FatherOne",
+  components: {ChildOne},
   data(){
     return{
       number: 0
     }
   },
   methods: {
-    send(number){
-      bus.$emit('idan', number)
+    sendNumberToGrandFather(numberFromChild) {
+      this.number = numberFromChild
+
     }
-  }
+    }
 }
 </script>
 

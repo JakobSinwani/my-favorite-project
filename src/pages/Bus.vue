@@ -2,10 +2,12 @@
   <div>
 <BusComponentOne/>
     <BusComponentTwo/>
+   STATE {{item}}
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import BusComponentOne from "components/BusComponentOne";
 import BusComponentTwo from "components/BusComponentTwo";
 export default {
@@ -14,6 +16,12 @@ export default {
   data() {
     return {
       number:0
+    }
+  },
+  computed: {
+    ...mapState('products',['item']),
+    showState() {
+      return this.$store.state.products.item
     }
   },
   methods: {

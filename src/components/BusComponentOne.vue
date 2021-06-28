@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import {bus} from '../middleware/busEvent'
+
 export default {
   name: "BusComponentOne",
   data(){
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     sendNumber(number){
-      bus.$emit('setNumber', number)
+
     }
   }
 }

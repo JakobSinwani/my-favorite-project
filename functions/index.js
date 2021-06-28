@@ -41,25 +41,14 @@ exports.sendMail = functions.auth.user().onCreate(user => {
 })
 
 
+exports.nofar = functions.firestore.document('folders/{uid}/userFolder/{folderId}')
+  .onCreate((snap, context) => {
+    const {uid, folderId} = context.params;
 
+    admin.firestore().collection('Users').doc(uid).collection('myFolders').doc(folderId)
+      .set(snap.data())
+      .then(()=> console.log('SUCEESSS!!!'))
+      .catch(e => console.error(e.message));
 
+  })
 
-
-
-
-const user = {
-  id: 3,
-  name: 'moshe'
-};
-const obj = {
-  users: {
-    1: {
-      id: 1,
-      name: 'nofar'
-    }
-  }
-}
-
-obj.users[user.id] = user
-
-console.log(obj)

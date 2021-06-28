@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import {bus} from '../middleware/busEvent';
+
 export default {
   name: "BusComponentTwo",
   created() {
-    bus.$on('setNumber', this.setNumber)
+
     },
   data() {
     return{
