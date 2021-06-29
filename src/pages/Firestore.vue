@@ -14,6 +14,7 @@
   <q-btn label="DeleteDoc" @click="deleteById(product.id)"/>
   <q-btn label="update" @click="updateName(product.id)"/>
   <q-btn label="deleteField" @click="deleteField(product.id)"/>
+  <q-btn label="GetCollectionGroup" @click="GetCollectionGroup()"/>
 </div>
 </template>
 
@@ -76,6 +77,14 @@ export default {
      id = 'cXowa3fz17cyorO53b8N'
       fbi.db().collection('TestUser').doc(window.user.uid).collection('products')
       .doc(id).update({hobby: fbi.firebase.firestore.FieldValue.delete()})
+    },
+    async GetCollectionGroup(){
+
+     const collection = await fbi.db().collectionGroup('products')
+       .where('price', '>', '50')
+       .get()
+      collection.docs.forEach(doc => console.log(doc.data()))
+
     },
     async nofar(folder) {
       folder.id = await (fbi.firebase.firestore().collection('test').doc().id)
