@@ -49,6 +49,5 @@ exports.nofar = functions.firestore.document('folders/{uid}/userFolder/{folderId
       .set(snap.data())
       .then(()=> console.log('SUCEESSS!!!'))
       .catch(e => console.error(e.message));
-
   })
 
