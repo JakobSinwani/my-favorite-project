@@ -81,7 +81,7 @@ export default {
     async GetCollectionGroup(){
 
      const collection = await fbi.db().collectionGroup('products')
-       .where('price', '>', '50')
+       .where('price', '<', '100')
        .get()
       collection.docs.forEach(doc => console.log(doc.data()))
 
