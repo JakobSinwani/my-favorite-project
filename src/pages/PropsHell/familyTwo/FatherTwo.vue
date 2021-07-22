@@ -1,8 +1,8 @@
 <template>
   <div style="background: #1976D2 ">
     <h3>I AM Father Two</h3>
-   <h6> {{number}}</h6>
-  <ChildTwo :number="number" style="background: #1372a2"/>
+   <h6> {{fatherNumber}}</h6>
+  <ChildTwo  style="background: #1372a2"/>
   </div>
 </template>
 
@@ -11,8 +11,10 @@
 import ChildTwo from "pages/PropsHell/familyTwo/ChildTwo";
 export default {
   name: "FatherTwo",
-  props: ['number'],
   components: {ChildTwo},
+  props: {
+    fatherNumber: String
+  },
   created() {
 
     },

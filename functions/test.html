@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <script src="test.js" defer></script>
-  <style>
-    body {
-      height: 150vh;
-    }
-  </style>
+  <title>test</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h3 id="name"></h3>
-<input id="input" placeholder="send something" onkeypress="setValue()">
-<div id="text"></div>
+<header>
+  <ol>
+    <li>Home</li>
+    <li>SERVICE</li>
+    <li>CONTACTS</li>
+    <li>INFO</li>
+  </ol>
+  <h3>LOGO</h3>
+</header>
+
+<div class="one"></div>
+<div class="two"></div>
+
 </body>
+<script type="text/javascript">
+  const header = document.querySelector('header');
+  addEventListener('scroll', ()=> {
+    header.classList.toggle('scroll',window.scrollY > 0)})
+</script>
 </html>

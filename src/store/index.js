@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import products from './products/index'
 import users from './users/index'
-
+import payments from './Payments/index';
+import products from './products/index';
 
 Vue.use(Vuex)
 
@@ -12,6 +12,7 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
+      payments,
       products,
       users
     },

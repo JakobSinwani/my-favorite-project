@@ -2,7 +2,7 @@
   <div>
 <BusComponentOne/>
     <BusComponentTwo/>
-   STATE {{item}}
+  <h1> STATE {{phone}} </h1>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   },
   computed: {
     ...mapState('products',['item']),
+    ...mapState('payments',['phone']),
     showState() {
       return this.$store.state.products.item
     }

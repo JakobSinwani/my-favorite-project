@@ -1,15 +1,16 @@
 <template>
 <div style="background: #F2C037; padding: 30px">
-  <FatherOne @fatherOne="setNumberOnGrandFather"/>
+  <FatherOne @fromFatherOneToGrandfather="sendToFatherTwo"/>
   <h3>I Am GrandFather</h3>
-  <h6>{{number}}</h6>
-  <FatherTwo :number="number" />
+  <h6>{{$store.state.payments.name}}</h6>
+  <FatherTwo v-bind:fatherNumber="number" />
 </div>
 </template>
 
 <script>
 import FatherOne from "pages/PropsHell/familyOne/FatherOne";
 import FatherTwo from "pages/PropsHell/familyTwo/FatherTwo";
+
 export default {
   name: "PropsHell",
   components: {FatherTwo, FatherOne},
@@ -19,8 +20,8 @@ export default {
     }
   },
   methods: {
-    setNumberOnGrandFather(numberFromFatherOne){
-      this.number = numberFromFatherOne;
+    sendToFatherTwo(number) {
+      this.number = number;
     }
   },
 }

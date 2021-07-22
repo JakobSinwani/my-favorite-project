@@ -10,12 +10,13 @@ import {bus} from '../../../middleware/BusEvent/index';
 import FatherOne from "pages/PropsHell/familyOne/FatherOne";
 export default {
   name: "ChildTwo",
+
   components: {FatherOne},
 
   created() {
-      bus.$on('childOneBusEvent', (numberFromChildOne)=> {
-          this.number = numberFromChildOne;
-      })
+    bus.$on('bus', (number)=> {
+      this.number = number
+    })
     },
   data(){
     return {

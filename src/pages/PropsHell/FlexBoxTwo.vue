@@ -1,8 +1,11 @@
 <template>
 <div class="container">
+  <div class="box">
+    <h5>hello moshe</h5>
+  </div>
 
-    <h3>{{item}}</h3>
-  <q-btn label="sendSomthing" @click="sendToActions"/>
+<!--    <h3>{{item}}</h3>-->
+<!--  <q-btn label="sendSomthing" @click="sendToActions"/>-->
 
 <!--  <div class="flex-child" id="one">-->
 <!--    1-->
@@ -49,11 +52,21 @@ export default {
 
 .container {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  align-content: center;
   height: 100vh;
+  background: #F2C037;
+  /*flex-direction: row-reverse;*/
+  /*align-items: center;*/
+  /*flex-wrap: wrap;*/
+  /*align-content: center;*/
+  /*height: 100vh;*/
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background: #aaaaaa;
 }
 
 .flex-child {

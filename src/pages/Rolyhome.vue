@@ -19,16 +19,22 @@
     <q-input label="project name" v-model="building.name"/>
     <q-input label="project type" v-model="building.type"/>
     <p>{{building.id}}</p>
+
+    <h1>{{phone}}</h1>
     <q-btn label="insert" @click="insert(building,'buildings', project.id, 'buildingsOfProject')"/>
   </div>
 </div>
 </template>
 
 <script>
+import {mapActions, mapState, mapMutations} from 'vuex';
 import fbi from '../middleware/firebaseAPI/index'
 export default {
 
   name: "Rolyhome",
+  created() {
+    console.log(this.$parent.$store._actions , 'parent')
+    },
   data(){
     return{
       uid: 'ICxsEAAKFug8iCCnP9NW0UkOljG2',
@@ -48,6 +54,9 @@ export default {
         id: ''
       }
     }
+  },
+  computed: {
+    ...mapState('payments', ['phone'])
   },
   methods: {
     async insert(item ,rootCollection, prevId, subCollection){

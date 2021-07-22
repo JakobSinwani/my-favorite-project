@@ -1,12 +1,13 @@
-import state from './aziza'
-import getters from './getters'
-import mutations from './mutations'
-import  actions from './actions'
+import state from './state';
+import actions from './actions';
+import mutations from './mutations';
+import getters from './getters';
+
 
 export default {
   namespaced: true,
-  getters,
-  mutations,
+  state,
   actions,
-  state
+  mutations,
+  getters
 }

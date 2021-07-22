@@ -51,3 +51,9 @@ exports.nofar = functions.firestore.document('folders/{uid}/userFolder/{folderId
       .catch(e => console.error(e.message));
   })
 
+
+
+exports.niv = functions.firestore.document('playes/{playId}')
+  .onCreate((snap, context)=> {
+  snap.data().url;
+})
